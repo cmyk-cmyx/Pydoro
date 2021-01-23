@@ -48,8 +48,6 @@ def Start():
 Start = Button (root, text = "Start!", fg = Colour1, bg = Colour2, padx = 40, command = Start)
 Stop = Button (root, text = "stop", fg = Colour1, bg = Colour2, state = DISABLED)
 
-
-
 Time = Label (root, text="", font = ("Helvetica", 50), fg = Colour1, bg = "#383838")
 Time.pack (pady = 5)
 
