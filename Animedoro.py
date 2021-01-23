@@ -37,7 +37,7 @@ def Start():
     def update(time_left):
         timer["text"] = time_left
         if time_left > 0:
-            root.after(1000, update, time_left-1) # Wait 60000ms or 1 minute
+            root.after(60000, update, time_left-1) # Wait 60000ms or 1 minute
         # elif 
     update(time_left)
         
