@@ -57,4 +57,4 @@ Stop.pack (pady = 10)
 
 
 clock()
-root.mainloop()
+root.mainloop() #Starts the program
