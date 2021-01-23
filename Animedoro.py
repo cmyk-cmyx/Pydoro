@@ -53,9 +53,8 @@ Calendar = Label (root, font = ("Helvetica", 12), fg = Colour1, bg = "#383838")
 Calendar.pack (pady = 5)
 
 Start.pack (pady = 10)
-
 Stop.pack (pady = 10)
 
 
 clock()
-root.mainloop() #Runs the program
+root.mainloop()
