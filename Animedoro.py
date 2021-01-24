@@ -14,7 +14,7 @@ Colour1 = "#c4c4c4"
 Colour2 = "#292828"
 
 def Date(): #Defines the date for displaying under the clock
-    day = time.strftime("%d")
+    day = time.strftime("%d")  
     month = time.strftime("%b") # %B can be used for full month
     year = time.strftime("%Y")
 
@@ -31,17 +31,22 @@ def Stop():
 
 def Start():
     time_left = (55) #40-60 minutes of work
+
+    notification.notify(title='Timer started',
+    message='Animedoro',
+    app_name='Animedoro',)
+    #app_icon='path/to/the/icon.' + ('ico' if platform == 'win' else 'png'))
+    Start.config (state = DISABLED)
     Stop.config (state = ACTIVE)
     timer = Label (root, text = time_left)
     timer.pack()
     def update(time_left):
         timer["text"] = time_left
         if time_left > 0:
-            root.after(60000, update, time_left-1) # Wait 60000ms or 1 minute
+            root.after(6000, update, time_left-1) # Wait 60000ms or 1 minute
         # elif 
     update(time_left)
         
-
 
 Start = Button (root, text = "Start!", fg = Colour1, bg = Colour2, padx = 40, command = Start)
 Stop = Button (root, text = "stop", fg = Colour1, bg = Colour2, state = DISABLED)
