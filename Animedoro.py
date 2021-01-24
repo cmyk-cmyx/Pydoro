@@ -26,8 +26,12 @@ def clock(): # for creating the clock
     Time.after (1000, clock)
     Date() #calling the Date because it makes sense to do it here
 
+Checkthis1 = 1
+
 def Stop():
     print ("nothing")
+    Checkthis1 = 2
+
 
 def Start():
     time_left = (55) #40-60 minutes of work
@@ -44,7 +48,10 @@ def Start():
         timer["text"] = time_left
         if time_left > 0:
             root.after(6000, update, time_left-1) # Wait 60000ms or 1 minute
-        # elif 
+            print (Checkthis1)
+        elif Checkthis1 == 2:
+            return
+
     update(time_left)
         
 
