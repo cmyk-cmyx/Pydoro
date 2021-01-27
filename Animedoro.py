@@ -29,34 +29,33 @@ def clock(): # for creating the clock
 Checkthis1 = 1
 
 def Stop():
-    print ("nothing")
+    Start.config (state = ACTIVE)
     Checkthis1 = 2
 
 
 def Start():
     time_left = (55) #40-60 minutes of work
 
-    notification.notify(title='Timer started',
-    message='Animedoro',
-    app_name='Animedoro',)
-    #app_icon='path/to/the/icon.' + ('ico' if platform == 'win' else 'png'))
+    # notification.notify(title='Timer started', message='Animedoro', app_name='Animedoro',)
     Start.config (state = DISABLED)
     Stop.config (state = ACTIVE)
-    timer = Label (root, text = time_left)
+    timer = Label (root, font = ("helvetice", 30), fg = Colour1, bg = "#383838", text = time_left)
     timer.pack()
+
     def update(time_left):
         timer["text"] = time_left
-        if time_left > 0:
+        if time_left > 0 and Checkthis1 == 1:
             root.after(6000, update, time_left-1) # Wait 60000ms or 1 minute
-            print (Checkthis1)
         elif Checkthis1 == 2:
+            print ("hsthr")
+            timer.pack_forget()
             return
 
     update(time_left)
         
 
 Start = Button (root, text = "Start!", fg = Colour1, bg = Colour2, padx = 40, command = Start)
-Stop = Button (root, text = "stop", fg = Colour1, bg = Colour2, state = DISABLED)
+Stop = Button (root, text = "stop", fg = Colour1, bg = Colour2, state = DISABLED, command = Stop)
 
 Time = Label (root, text="", font = ("Helvetica", 50), fg = Colour1, bg = "#383838")
 Time.pack (pady = 5)
